@@ -1,0 +1,47 @@
+@use '../../styles/SassStyle.scss' as *;
+
+.Aboutus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+
+    .content {
+        background-color: aqua;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        padding: 25px 0 0 25px;
+        gap: 3rem;
+
+        .left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            h1 {
+                font-size: 35px;
+                font-weight: 600;
+                @include poppins;
+            }
+
+            p {
+                font-size: 17px;
+                font-weight: 500;
+                @include nunito
+            }
+
+            button {
+                @include btn;
+                margin-bottom: 30px;
+            }
+        }
+
+        .right {
+            flex: 0.5;
+            display: flex;
+            align-items: end;
+        }
+    }
+}

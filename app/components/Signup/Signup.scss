@@ -1,0 +1,126 @@
+@use '../../styles/SassStyle.scss' as *;
+
+.Signup {
+    position: absolute;
+    background-color: rgba(3, 3, 3, 0.734);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    .form {
+        position: relative;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 50px;
+        border-radius: 10px;
+
+        .closeicon {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+        }
+
+        h1 {
+            font-size: 25px;
+            font-weight: 800;
+            text-transform: uppercase;
+            @include nunito;
+        }
+
+        .Username,
+        .Email,
+        .Password {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            position: relative;
+
+            label {
+                color: rgba(0, 0, 0, 0.753);
+            }
+
+            input {
+                outline: none;
+                border-bottom: 2px solid black;
+            }
+
+            .passwordBox {
+                display: flex;
+                position: relative;
+
+                .showPassword {
+                    position: absolute;
+                    right: 0;
+                }
+            }
+
+            .debug {
+                color: red;
+                font-size: 10px;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+        }
+
+        button {
+            background-color: orange;
+            padding: 5px 25px;
+            font-weight: 600;
+            color: white;
+            font-size: 18px;
+            border-radius: 8px;
+            transition: 0.5s;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        button.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+
+            &:hover {
+                transform: scale(1);
+            }
+        }
+
+        .verify {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+            p {
+                cursor: pointer;
+                font-size: 13px;
+                color: rgba(0, 0, 255, 0.596);
+            }
+        }
+
+        .social {
+            display: flex;
+            gap: 1rem;
+
+            >* {
+                transition: 0.2s;
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+    }
+}
