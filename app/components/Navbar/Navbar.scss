@@ -8,12 +8,15 @@ nav {
     height: 100px;
 
     .logo {
+        flex: 1;
+
         img {
             width: 100px;
         }
     }
 
     .navlinks {
+        flex: 1;
         display: flex;
         gap: 2rem;
 
@@ -24,11 +27,35 @@ nav {
     }
 
     .auth {
+        flex: 1;
+        display: flex;
+        justify-content: end;
+
         .profile {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 1rem;
+
+            .searchbar {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: start;
+
+                input {
+                    height: 40px;
+                    padding: 10px 25px;
+                    background-color: rgba(0, 255, 255, 0.46);
+                    border: none;
+                    outline: none;
+                }
+
+                .close {
+                    position: absolute;
+                    right: 10px;
+                }
+            }
 
             img {
                 height: 30px;

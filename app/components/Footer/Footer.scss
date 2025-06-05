@@ -1,0 +1,43 @@
+@use '../../styles/SassStyle.scss' as *;
+
+.footer {
+    padding: 25px 100px;
+    display: flex;
+    background-color: aqua;
+    justify-content: space-between;
+
+    .one {
+        .icons {
+            display: flex;
+            gap: 0.75rem;
+
+            img {
+                height: 30px;
+                width: 30px;
+            }
+        }
+    }
+
+    .content {
+
+        h3 {
+            @include nunito;
+            font-size: 23px;
+            font-weight: 800;
+            margin: 10px 0 20px;
+        }
+
+        p {
+            @include poppins;
+            color: rgba(0, 0, 0, 0.777);
+            margin: 10px 0;
+            cursor: pointer;
+        }
+    }
+
+    img {
+        height: 280px;
+        object-fit: cover;
+    }
+
+}

@@ -1,17 +1,18 @@
 'use client';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
-import { FaShoppingCart, FaRegHeart } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 import { useDispatch, useSelector } from 'react-redux';
 import { openLogin, loginSucess } from '@/app/Redux/auth';
+import { motion, AnimatePresence } from 'framer-motion'
 import './Navbar.scss';
 import axios from 'axios';
 
 const Navbar = () => {
     const dispatch = useDispatch();
     const { isAuthenticated, user } = useSelector((state) => state.showForm);
-    console.log(isAuthenticated)
-    console.log(user)
+    const [showSearch, setShowSearch] = useState(false)
+
     useEffect(() => {
         const checkAuth = async () => {
             try {
@@ -41,9 +42,23 @@ const Navbar = () => {
             <div className="auth">
                 {isAuthenticated ? (
                     <div className='profile'>
-                        <FiSearch className='text-3xl' />
+                        <AnimatePresence>
+                            {showSearch && (
+                                <motion.div
+                                    key="searchbar"
+                                    initial={{ scaleX: 0, opacity: 0 }}
+                                    animate={{ scaleX: 1, opacity: 1 }}
+                                    exit={{ scaleX: 0, opacity: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="searchbar"
+                                >
+                                    <input type="text" placeholder="Search Product name" />
+                                    <IoClose className="close" onClick={() => setShowSearch(false)} />
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                        {!showSearch && <FiSearch className='text-3xl' onClick={() => setShowSearch(true)} />}
                         <img src="/shopping-cart.png" alt="" />
-                        {/* <FaRegHeart className='text-2xl' /> */}
                         <img src="/user.png" alt="" />
                     </div>
                 ) : (

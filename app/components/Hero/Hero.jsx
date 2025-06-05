@@ -1,6 +1,7 @@
 import './Hero.scss'
 import Partner from '../Partner/Partner'
 import Aboutus from '../Aboutus/Aboutus'
+import Product from '../Product/Product'
 
 const Hero = () => {
     return (
@@ -28,6 +29,8 @@ const Hero = () => {
             </div>
             <Partner />
             <Aboutus />
+            <Product style={"flex-row"} image={"/Product1.png"} Heading={"Nourishing Mineral Bath Salts"} Description={"Filled with hand-harvested salt crystals form the Southern Dead Sea, soak contains nourishing vitamins and minerals like magnesium,potassium,sulfur,zinc and more."} />
+            <Product style={"flex-row-reverse"} image={"/Product2.png"} Heading={"Nourishing Mineral Bath Salts"} Description={"Filled with hand-harvested salt crystals form the Southern Dead Sea, soak contains nourishing vitamins and minerals like magnesium,potassium,sulfur,zinc and more."} />
         </>
     )
 }
