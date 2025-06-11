@@ -4,7 +4,7 @@ import { Hero } from './components'
 const page = () => {
   return (
     <div>
-       <Hero/>
+      <Hero />
     </div>
   )
 }

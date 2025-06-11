@@ -1,0 +1,130 @@
+[
+    {
+        "Id": 1,
+        "Image": "gentleman_bodywash.png",
+        "Name": "Gentleman Hair And Body Wash (270 Ml)",
+        "Price": 449,
+        "ratings": 4.9,
+        "ratedBy": 4
+    },
+    {
+        "Id": 2,
+        "Image": "handwash.png",
+        "Name": "Love story hand wash",
+        "Price": 899,
+        "ratings": 4.8,
+        "ratedBy": 2
+    },
+    {
+        "Id": 3,
+        "Image": "shampoo.png",
+        "Name": "Tia shampoo",
+        "Price": 899,
+        "ratings": 4.8,
+        "ratedBy": 3
+    },
+    {
+        "Id": 4,
+        "Image": "bodyyogurt.png",
+        "Name": "Love Story Body Yogurt",
+        "Price": 799,
+        "ratings": 4.8,
+        "ratedBy": 2
+    },
+    {
+        "Id": 5,
+        "Image": "handcream.png",
+        "Name": "Vivah Hand Cream",
+        "Price": 499,
+        "ratings": 4.8,
+        "ratedBy": 2
+    },
+    {
+        "Id": 6,
+        "Image": "Candles.png",
+        "Name": "Ocean Vibes Scented Candle 175g",
+        "Price": 849,
+        "ratings": 4.8,
+        "ratedBy": 2
+    },
+    {
+        "Id": 7,
+        "Image": "caddyset.png",
+        "Name": "Love Story Hand Caddy Set 270ml",
+        "Price": 1199,
+        "ratings": 4.8,
+        "ratedBy": 2
+    },
+    {
+        "Id": 8,
+        "Image": "indulgence.png",
+        "Name": "Vivah Indulgence Set",
+        "Price": 2635,
+        "ratings": 4.8,
+        "ratedBy": 2
+    },
+    {
+        "Id": 9,
+        "Image": "gentleman_set.png",
+        "Name": "The Gentleman experience set",
+        "Price": 1699,
+        "ratings": 4.8,
+        "ratedBy": 2
+    },
+    {
+        "Id": 10,
+        "Image": "CoconutOil.png",
+        "Name": "Fairtrade Coconut Oil",
+        "Price": 999,
+        "ratings": 4.8,
+        "ratedBy": 2
+    },
+    {
+        "Id": 11,
+        "Image": "Blind_Tiger.png",
+        "Name": "Blind Tiger EDP 120ml - 3 piece set",
+        "Price": 7499,
+        "ratings": 4.8,
+        "ratedBy": 2
+    },
+    {
+        "Id": 12,
+        "Image": "fragrence_set.png",
+        "Name": "Experience Set Pack of 4 x 10ml",
+        "Price": 2549,
+        "ratings": 4.8,
+        "ratedBy": 2
+    },
+    {
+        "Id": 13,
+        "Image": "bath_Salt.png",
+        "Name": "The Gulistan Epsom Bath Salt",
+        "Price": 899,
+        "ratings": 4.8,
+        "ratedBy": 2
+    },
+    {
+        "Id": 14,
+        "Image": "scentedCandle.png",
+        "Name": "Ocean Vibes Scented Candle 80g",
+        "Price": 629,
+        "ratings": 4.8,
+        "ratedBy": 2
+    },
+    {
+        "Id": 15,
+        "Image": "hydrationSerum.png",
+        "Name": "Power Hydration Serum",
+        "Price": 879,
+        "ratings": 4.8,
+        "ratedBy": 2
+    },
+    {
+        "Id": 16,
+        "Image": "bodyLotion.png",
+        "Name": "Love Story Body Lotion",
+        "Price": 849,
+        "ratings": 4.8,
+        "ratedBy": 2
+    }
+]

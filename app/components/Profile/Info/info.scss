@@ -1,0 +1,71 @@
+@use "../../../styles/SassStyle.scss" as *;
+
+.container {
+    img {
+        height: 40px;
+        width: 40px;
+    }
+
+    h2 {
+        font-size: 25px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .info {
+        display: grid;
+        gap: 2rem 3rem;
+        grid-template-columns: repeat(2, auto);
+
+        .details {
+            display: flex;
+            flex-direction: column;
+
+            label {
+                font-weight: 700;
+                @include nunito;
+                display: flex;
+                justify-content: space-between;
+
+                button {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: blue;
+                }
+            }
+
+            input {
+                padding: 5px 10px;
+                background-color: aqua;
+            }
+
+            span {
+                display: flex;
+                gap: 1rem;
+
+                .countrycode {
+                    width: 50px;
+                }
+            }
+        }
+    }
+
+    .button {
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+        margin-top: 50px;
+
+        p {
+            color: rgb(97, 97, 252);
+            font-size: 14px;
+        }
+
+        button {
+            background-color: blue;
+            padding: 6px 15px;
+            color: white;
+            font-weight: 500;
+        }
+    }
+}

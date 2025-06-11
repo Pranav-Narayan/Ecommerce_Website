@@ -6,14 +6,38 @@
     gap: 1rem;
     padding: 0 50px;
 
+    @include mobile {
+        padding: 80px 25px;
+        height: 65vh;
+    }
+
+    @include md {
+        flex-direction: column;
+        // background:
+        //     linear-gradient(rgba(0, 255, 255, 0.250),
+        //         rgba(0, 255, 255, 0.250)), url('/heroimage.png');
+        // background-repeat: no-repeat;
+        // background-position: bottom;
+        // background-size: contain;
+    }
+
     .left {
         flex: 1;
         display: flex;
         align-items: end;
 
+        @include md {
+            display: none;
+        }
+
         img {
-            height: 90%;
-            object-fit: cover;
+            height: 450px;
+            width: 100%;
+            object-fit: contain;
+
+            @include xl {
+                height: auto;
+            }
         }
     }
 
@@ -22,7 +46,8 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 10px;
+        gap: 15px;
+
 
         .one {
             display: flex;
@@ -38,7 +63,7 @@
                 font-weight: 700;
                 font-size: 14px;
                 text-transform: uppercase;
-                color: green
+                color: green;
             }
         }
 
@@ -46,13 +71,27 @@
             @include PlayfairDisplay;
             font-size: 100px;
             font-weight: 800;
-            line-height: 100px
+            line-height: 100px;
+
+            @include lg {
+                font-size: 70px;
+            }
+
+
+            @include mobile {
+                font-size: 55px;
+                line-height: 70px;
+            }
         }
 
         .three {
             @include nunito;
             font-weight: 600;
             width: 90%;
+
+            @include mobile {
+                font-size: 14px;
+            }
         }
 
         .four {
@@ -63,6 +102,10 @@
                 color: white;
                 padding: 12px 30px;
                 transition: 0.5s;
+
+                @include mobile {
+                    padding: 10px 25px;
+                }
 
                 &:nth-child(1) {
                     background-color: orange;

@@ -16,11 +16,19 @@ const Signup = () => {
     const { showSignup } = useSelector((state) => state.showForm)
     const dispatch = useDispatch()
 
-    const [user, setUser] = useState({ Username: "", Email: "", Password: "" })
+    const [user, setUser] = useState(
+        {
+            Username: "",
+            Email: "",
+            Password: "",
+            Phone: "",
+            isVerified: true,
+        }
+    )
 
     const [enableSignup, setEnableSignup] = useState(false);
     useEffect(() => {
-        if (user.Username.length > 1 & user.Email.length > 0 && user.Password.length > 1) {
+        if (user.Username.length > 1 && user.Email.length > 0 && user.Password.length > 1) {
             setEnableSignup(false)
         }
         else {
@@ -32,7 +40,7 @@ const Signup = () => {
         try {
             const response = await axios.post("api/auth/signup", user)
             console.log("Signup Success")
-            setUser({ Username: "", Email: "", Password: "" });
+            setUser({ Username: "", Email: "", Password: "", Phone: "777-555-111-2", isVerified: true, });
             alert('Signup Successfull..')
             dispatch(openLogin())
         } catch (error) {
@@ -62,7 +70,7 @@ const Signup = () => {
                         </div>
                         <h1>Signup</h1>
                         <div className="Username">
-                            <label htmlFor="username">Username</label>
+                            <label htmlFor="username">Name</label>
                             <input type="text" id='username' name='username'
                                 value={user.Username}
                                 onChange={(e) => setUser({ ...user, Username: e.target.value })}

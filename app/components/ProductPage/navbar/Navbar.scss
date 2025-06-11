@@ -1,0 +1,18 @@
+@use '../../../styles/SassStyle.scss' as *;
+
+nav {
+    display: grid;
+    align-items: center;
+    text-align: center;
+    grid-template-columns: repeat(6, auto);
+    padding: 20px 0 0px;
+
+    .links {
+        @include nunito;
+        font-weight: 600;
+        font-size: 16px;
+        text-transform: uppercase;
+        border: 2px solid rgba(0, 0, 0, 0.044);
+        padding: 10px 0;
+    }
+}

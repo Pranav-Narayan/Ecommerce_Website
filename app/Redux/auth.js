@@ -34,9 +34,12 @@ const authForm = createSlice({
             state.isAuthenticated = true;
             state.user = action.payload.user;
         },
-
+        logout: (state, action) => {
+            state.isAuthenticated = false;
+            state.user = null;
+        }
     }
 })
 
-export const { openLogin, closeLogin, openSignup, closeSignup, loginSucess } = authForm.actions;
+export const { openLogin, closeLogin, openSignup, closeSignup, loginSucess, logout } = authForm.actions;
 export default authForm.reducer;

@@ -1,17 +1,16 @@
-import { NextResponse } from "next/server";
+import { cookies } from 'next/headers';
 import jwt from 'jsonwebtoken';
 
-export async function getDatafromToken(request) {
+export async function getDatafromToken() {
     try {
-        // encoded token
-        const token = request.cookies.set('Token')?.value || ""
-        // decoded token
+        const cookieStore = await cookies();
+        const token = cookieStore.get('Token')?.value;
+
+        if (!token) throw new Error("No token found");
+
         const decodedToken = jwt.verify(token, process.env.TOKEN_SECRET);
         return decodedToken.id;
-
     } catch (error) {
-        return NextResponse.json(
-            { error: error.message }
-        )
+        throw new Error(error.message);
     }
 }
