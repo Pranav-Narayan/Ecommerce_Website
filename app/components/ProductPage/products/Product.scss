@@ -27,9 +27,6 @@
                 object-fit: cover;
                 transition: 0.5s;
 
-                &:hover {
-                    transform: scale(1.05);
-                }
             }
 
             h2 {
@@ -61,7 +58,7 @@
                 @include poppins;
                 background-color: black;
                 color: white;
-                padding: 5px 30px;
+                padding: 5px 25px;
                 font-weight: 400;
                 text-transform: uppercase;
             }

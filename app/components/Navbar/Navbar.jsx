@@ -5,6 +5,7 @@ import { IoClose } from "react-icons/io5";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { useDispatch, useSelector } from 'react-redux';
 import { openLogin, loginSucess, openSignup, logout } from '@/app/Redux/auth';
+import { updateCartCount } from '@/app/Redux/cart'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -13,10 +14,11 @@ import axios from 'axios';
 
 const Navbar = () => {
     const dispatch = useDispatch();
-    const { isAuthenticated, user } = useSelector((state) => state.showForm);
+    const { isAuthenticated, LoginUser } = useSelector((state) => state.showForm);
+    const { cartCount, cartList } = useSelector((state) => state.cart)
     const [showSearch, setShowSearch] = useState(false)
     const [dropDown, setDropDown] = useState(false)
-    const [user_name, setUsername] = useState("")
+    const [user, setUser] = useState("")
     const router = useRouter()
 
     useEffect(() => {
@@ -24,8 +26,9 @@ const Navbar = () => {
             try {
                 const res = await axios.get('/api/auth/isAuthenticated');
                 if (res.data.isAuthenticated) {
-                    dispatch(loginSucess({ user: res.data.user }));
+                    dispatch(loginSucess(res.data.user));
                 }
+
             } catch (error) {
                 console.log("Auth check failed");
             }
@@ -50,15 +53,33 @@ const Navbar = () => {
         const getInfo = async () => {
             const response = await axios.get("api/auth/myinfo")
             const USER = response.data.Data
-            setUsername(USER.Username)
+            setUser(USER)
         }
         if (isAuthenticated) {
             getInfo();
         } else {
-            setUsername("");
+            setUser("");
         }
 
     }, [isAuthenticated])
+
+    useEffect(() => {
+        const fetchCart = async () => {
+            if (!user?._id) return;
+
+            try {
+                const response = await axios.post('/api/cart/CartData', { userId: user._id });
+                const { cartCount, cartList } = response.data;
+
+                dispatch(updateCartCount(cartCount));
+
+            } catch (err) {
+                console.error("Failed to sync cart from DB", err);
+            }
+        };
+
+        fetchCart();
+    }, [user])
 
     return (
         <nav className="navbar">
@@ -89,7 +110,10 @@ const Navbar = () => {
                         )}
                     </AnimatePresence>
                     {!showSearch && <FiSearch className='text-3xl' onClick={() => setShowSearch(true)} />}
-                    <img src="/shopping-cart.png" alt="" />
+                    <div className="cart">
+                        <Link href="/cart"><img src="/shopping-cart.png" alt="" /></Link>
+                        {isAuthenticated && <p>{cartCount}</p>}
+                    </div>
                     <div className="user"
                         onMouseEnter={() => setDropDown(true)}
                         onMouseLeave={() => setDropDown(false)}
@@ -100,7 +124,7 @@ const Navbar = () => {
                                 {isAuthenticated ? (
                                     <>
                                         <div className="Namelink">
-                                            <span>Hello,{user_name}</span>
+                                            <span>Hello,{user.Username}</span>
                                         </div>
                                         <div className="link"
                                             onClick={() => router.push('/profile')}

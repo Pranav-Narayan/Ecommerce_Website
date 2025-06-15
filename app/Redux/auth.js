@@ -6,7 +6,7 @@ const initialState = {
     showLogin: false,
     showSignup: false,
     isAuthenticated: false,
-    user: null,
+    LoginUser: null,
     token: null,
 }
 
@@ -32,12 +32,13 @@ const authForm = createSlice({
         },
         loginSucess: (state, action) => {
             state.isAuthenticated = true;
-            state.user = action.payload.user;
+            state.LoginUser = action.payload;
         },
         logout: (state, action) => {
             state.isAuthenticated = false;
-            state.user = null;
-        }
+            state.LoginUser = null;
+        },
+
     }
 })
 

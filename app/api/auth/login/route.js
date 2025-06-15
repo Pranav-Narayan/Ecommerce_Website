@@ -34,7 +34,9 @@ export async function POST(request) {
         const tokenData = {
             id: user._id,
             username: user.Username,
-            email: user.Email
+            email: user.Email,
+            cartCount: user.cartCount,
+            cartList: user.cartList
         }
         //Token generation
         const token = jwt.sign(tokenData, process.env.TOKEN_SECRET, { expiresIn: "1h" })

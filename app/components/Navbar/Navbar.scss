@@ -34,6 +34,23 @@
         a {
             @include poppins;
             font-weight: 500;
+            position: relative;
+
+            &::after {
+                position: absolute;
+                content: "";
+                height: 3px;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.478);
+                left: 0;
+                top: 100%;
+                transform: scale(0, 1);
+                transition: 0.5s;
+            }
+
+            &:hover::after {
+                transform: scale(1, 1);
+            }
         }
     }
 
@@ -76,6 +93,21 @@
                 height: 30px;
                 object-fit: cover;
                 margin: 10px 0;
+            }
+
+            .cart {
+                display: flex;
+                align-items: start;
+
+                p {
+                    background-color: black;
+                    color: white;
+                    font-size: 10px;
+                    height: 15px;
+                    width: 15px;
+                    border-radius: 50%;
+                    height: auto;
+                }
             }
 
             .user {

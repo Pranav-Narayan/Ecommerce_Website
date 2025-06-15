@@ -9,12 +9,15 @@ export async function GET(request) {
         }
 
         const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
+
         return NextResponse.json({
             isAuthenticated: true,
             user: {
                 id: decoded.id,
                 username: decoded.username,
-                email: decoded.email
+                email: decoded.email,
+                carCount: decoded.carCount,
+                cartList: decoded.cartList
             }
         });
     } catch (error) {

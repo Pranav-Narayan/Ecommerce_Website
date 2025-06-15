@@ -1,8 +1,52 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import './Product.scss'
 import Products from '@/app/Data/Products.json'
+import { useDispatch, useSelector } from 'react-redux'
+import { addToCart } from '@/app/Redux/cart'
+import { openLogin } from '@/app/Redux/auth';
+import axios from 'axios'
 
 const Product = () => {
+
+    const dispatch = useDispatch()
+    const { cartList, cartCount } = useSelector((state) => state.cart)
+    const { isAuthenticated } = useSelector((state) => state.showForm);
+    const [user, setUser] = useState("")
+
+    useEffect(() => {
+        const getInfo = async () => {
+            const response = await axios.get("api/auth/myinfo")
+            const USER = response.data.Data
+            setUser(USER)
+        }
+        if (isAuthenticated) {
+            getInfo();
+        } else {
+            setUser("");
+        }
+
+    }, [isAuthenticated])
+
+
+    const onAddtocart = async (item) => {
+        if (isAuthenticated) {
+            dispatch(addToCart(item));
+
+            try {
+                await axios.post('/api/cart/addToCart', {
+                    userId: user._id,
+                    cartItems: [item],
+                    cartCount: 1
+                });
+            } catch (err) {
+                console.error("Failed to sync new item to DB", err);
+            }
+        } else {
+            dispatch(openLogin());
+        }
+    }
+
 
     return (
         <div className='Product'>
@@ -22,7 +66,9 @@ const Product = () => {
                             <img src="verified.png" alt="" />
                             <p>{Product.ratedBy}reviews</p>
                         </div>
-                        <button>Add to Cart</button>
+                        <button
+                            onClick={() => onAddtocart(Product)}
+                        >Add to Cart</button>
                     </div>
                 ))}
             </div>
